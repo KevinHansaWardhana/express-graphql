@@ -1,0 +1,16 @@
+1. membuat folder untuk express-graphql
+2. membuat file utama(main.js)
+3. install express-graphql = npm install express express-graphql graphql
+4. install npm nodemon=npm install nodemon -g (npm start)
+5. jika tidak ada package-json menggunakan =npm init
+6. install jsonwebtoken
+7. install schema
+
+
+C:\Users\kevin\AppData\Roaming\npm
+
+aplikasi graphql
+https://www.electronjs.org/apps/graphiql
+
+template graphql
+https://github.com/benawad/graphql-express-template/tree/3_cors_for_reactql
