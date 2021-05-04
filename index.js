@@ -6,6 +6,8 @@ const startDatabase = require('./database');
 const expressPlayground = require('graphql-playground-middleware-express')
   .default;
 const isTokenValid = require('./validate');
+const moesif = require('moesif-nodejs');
+
 
 // Create a context for holding contextual data
 const context = async req => {
@@ -60,10 +62,21 @@ const resolvers = {
       .then(resp => resp.value);
   },
 };
+// 2. Set the options, the only required field is applicationId
+const moesifMiddleware = moesif({
+  applicationId: 'eyJhcHAiOiIxOTg6MTI5OCIsInZlciI6IjIuMCIsIm9yZyI6Ijg4OjE4MDEiLCJpYXQiOjE2MTQ1NTY4MDB9.yN6IE7U75Nnj6aU-IorQLYe-wVY20JT74D_Lc9EiISQ',
 
+  // Optional hook to link API calls to users
+  identifyUser: function (req, res) {
+    return req.user ? req.user.id : undefined;
+  },
+});
+
+// 3. Enable the Moesif middleware to start logging incoming API Calls
 const app = express();
 app.use(
   '/graphql',
+  moesifMiddleware,
   cors(),
   graphqlHTTP(async req => ({
     schema,

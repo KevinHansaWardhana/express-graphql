@@ -21,7 +21,7 @@ module.exports = (credentials = []) => {
       jwt.verify(tokenBody, config.JWT_SECRET, (err, decoded) => {
         if (err) {
           console.log(`JWT Error: ${err}`);
-          return res.status(401).send("Error: Access Denied");
+          return res.status(401).send("Error: Access Ditolak");
         }
         // No Error, JWT is good!
 

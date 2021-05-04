@@ -4,6 +4,18 @@ const jwt = require("jsonwebtoken");
 const authorize = require("./authorization-middleware");
 const config = require("./config");
 const schema = require('./schema.js');
+const moesif = require('moesif-nodejs');
+
+// 2. Set the options, the only required field is applicationId
+const moesifMiddleware = moesif({
+  applicationId: 'eyJhcHAiOiIxOTg6MTI5OCIsInZlciI6IjIuMCIsIm9yZyI6Ijg4OjE4MDEiLCJpYXQiOjE2MTQ1NTY4MDB9.yN6IE7U75Nnj6aU-IorQLYe-wVY20JT74D_Lc9EiISQ',
+
+  // Optional hook to link API calls to users
+  identifyUser: function (req, res) {
+    return req.user ? req.user.id : undefined;
+  },
+});
+
 
 const app = express();
 
@@ -18,12 +30,12 @@ app.get("/token", (req, res) => {
 });
 
 app.get("/user", authorize("customer:read"), (req, res) => {
-  res.send("Nama kevin");
+  res.send("Selamat Datang");
 });
 
-app.use('/graphql',  graphqlHTTP({
+app.use('/graphql', moesifMiddleware,  graphqlHTTP({
     schema:schema,
-    graphiql:true
+    graphiql:true,
 }));
 
 

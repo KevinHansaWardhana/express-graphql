@@ -18,17 +18,19 @@ async function startDatabase() {
         id: 1,
         title: 'Coba auth',
         description: 'Introductionary night to GraphQL',
-        date: '2019-11-06T17:34:25+00:00',
+        date: '2021',
         attendants: [
           {
             id: 1,
             name: 'Kevin Hansa Wardhana',
             age: 20,
+            address: 'Sukoharjo',
           },
           {
             id: 2,
             name: 'Sang aji',
             age: 21,
+            address:'Sukoharjo',
           },
         ],
       },
@@ -36,12 +38,13 @@ async function startDatabase() {
         id: 2,
         title: 'GraphQL Introduction Night #2',
         description: 'Introductionary night to GraphQL',
-        date: '2019-11-06T17:34:25+00:00',
+        date: '2021',
         attendants: [
           {
             id: 3,
             name: 'Alfarez',
             age: null,
+            address: 'Sukoharjo',
           },
         ],
       },

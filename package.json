@@ -25,6 +25,8 @@
   "homepage": "https://github.com/Martin-Stankard/json-placeholder-graphql#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "body-parser-graphql": "^1.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
@@ -34,6 +36,7 @@
     "graphql-playground-middleware-express": "^1.7.22",
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.12.3",
+    "moesif-nodejs": "^3.1.5",
     "mongodb": "^3.6.4",
     "mongodb-memory-server": "^6.9.6",
     "nodemon": "^1.18.1"

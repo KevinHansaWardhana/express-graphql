@@ -15,6 +15,7 @@ const schema = buildSchema(`
         id: ID!
         name: String!
         age: Int
+        address: String!
     }
 
     type Query {
